@@ -93,3 +93,9 @@ variable "generic_timezone" {
   type        = string
   default     = "UTC" # As per the working config
 }
+
+variable "n8n_port" {
+  description = "Port that n8n will listen on inside the container"
+  type        = number
+  default     = 5678
+}

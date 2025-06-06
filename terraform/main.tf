@@ -164,6 +164,7 @@ resource "google_cloud_run_v2_service" "n8n" {
       max_instance_count = var.cloud_run_max_instances # Guide uses 1
       min_instance_count = 0
     }
+    
     volumes {
       name = "cloudsql"
       cloud_sql_instance {
@@ -177,7 +178,7 @@ resource "google_cloud_run_v2_service" "n8n" {
         mount_path = "/cloudsql"
       }
       ports {
-        container_port = var.cloud_run_container_port
+        container_port = var.n8n_port
       }
       resources {
         limits = {
@@ -186,6 +187,7 @@ resource "google_cloud_run_v2_service" "n8n" {
         }
         startup_cpu_boost = true
       }
+
       env {
         name  = "N8N_PATH"
         value = "/"
@@ -193,7 +195,7 @@ resource "google_cloud_run_v2_service" "n8n" {
       
       env {
         name  = "N8N_PORT"
-        value = "443"
+        value = tostring(var.n8n_port)
       }
       env {
         name  = "N8N_PROTOCOL"
@@ -312,7 +314,7 @@ resource "google_cloud_run_v2_service" "n8n" {
         period_seconds        = 10 # Reduced period for faster checks
         failure_threshold     = 3  # Standard threshold
         tcp_socket {
-          port = var.cloud_run_container_port
+          port = var.n8n_port
         }
       }
     }
