@@ -97,5 +97,5 @@ variable "generic_timezone" {
 variable "n8n_port" {
   description = "Port that n8n will listen on inside the container"
   type        = number
-  default     = 5678
+  default     = 5678  
 }

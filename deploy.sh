@@ -29,7 +29,7 @@ export GCP_REGION="${TF_VAR_gcp_region:-us-west2}"
 export AR_REPO_NAME="${TF_VAR_artifact_repo_name:-n8n-repo}"
 export SERVICE_NAME="${TF_VAR_cloud_run_service_name:-n8n}"
 
-export IMAGE_TAG="${GCP_REGION}-docker.pkg.dev/${GCP_PROJECT_ID}/${AR_REPO_NAME}/${SERVICE_NAME}:latest"
+export IMAGE_TAG="${GCP_REGION}-docker.pkg.dev/${GCP_PROJECT_ID}/${AR_REPO_NAME}/${SERVICE_NAME}:august2025update"
 
 # --- Check Prerequisites --- #
 command -v gcloud >/dev/null 2>&1 || { echo >&2 "gcloud is required but it's not installed. Aborting."; exit 1; }
