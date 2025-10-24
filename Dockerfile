@@ -1,4 +1,4 @@
-FROM docker.n8n.io/n8nio/n8n:1.106.3
+FROM docker.n8n.io/n8nio/n8n:1.116.2
 
 # Copy the script and ensure it has proper permissions
 COPY startup.sh /
